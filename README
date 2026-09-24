@@ -1,3 +1,7 @@
+Historical-Stock-Market-Algorithm-Analyzer
+
+Backtests trading algorithms on historical stock data and compares their performance across AAPL, TSLA, INTC, and MSFT.
+
 # Historical Stock Market Algorithm Analyzer
 
 Backtests rule-based trading strategies on historical stock data and compares their performance against a simple buy-and-hold baseline.
