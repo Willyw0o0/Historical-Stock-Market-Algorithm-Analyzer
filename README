@@ -1,0 +1,44 @@
+# Historical Stock Market Algorithm Analyzer
+
+Backtests rule-based trading strategies on historical stock data and compares their performance against a simple buy-and-hold baseline.
+
+## What It Does
+
+Most people assume active trading beats just holding a stock. This project tests that assumption directly instead of guessing.
+
+It takes a fixed, repeatable trading rule (a strategy) and replays it against years of real historical price data, day by day, as if the trades had actually happened. It then compares the result against buy-and-hold: what would have happened if you bought the stock on day one and did nothing.
+
+This is not a general "does trading work" test. It only evaluates strategies that follow a clear rule. Gut-feeling decisions can't be backtested.
+
+## Strategies
+
+- **Moving Average Crossover** — calculates a short-term and a long-term moving average of price. Buys when the short-term average crosses above the long-term average (upward momentum), sells when it crosses below (downward momentum).
+- Additional strategies (RSI, MACD, Bollinger Bands) planned as the project expands.
+
+## Data
+
+Historical daily OHLCV (Open, High, Low, Close, Volume) data for:
+
+- **AAPL** — stable large-cap
+- **TSLA** — volatile growth stock
+- **INTC** — semiconductor, sideways/declining stretch
+- **MSFT** — stable large-cap, secondary benchmark
+
+Data covers each stock's history through early April 2020, sourced from a public Kaggle dataset of historical stock prices.
+
+## How It Works
+
+1. Load historical price data for each stock.
+2. Apply a strategy's buy/sell rules to generate signals.
+3. Simulate a portfolio trading on those signals across the historical period.
+4. Measure performance: total return, max drawdown, win rate, Sharpe ratio.
+5. Compare against buy-and-hold on the same stock and period.
+6. Repeat across strategies and stocks to see which hold up and which only worked by luck on one stock during one period.
+
+## Status
+
+Early development. Currently building the data loading and backtesting pipeline.
+
+## Tech
+
+Python, pandas
